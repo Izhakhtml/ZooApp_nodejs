@@ -25,7 +25,7 @@ module.exports = {
              bcryptjs.compare(password, user.password, (err, isMatch) => {
                 if (err) return res.status(500).send({ message: "error" });
                 if (!isMatch) return res.status(500).send({ message: "password error" });
-                jwt.sign({ user }, process.env.SECRET_KET, { expiresIn: '30m' },(error,result)=>{
+                jwt.sign({ user }, process.env.secretOrKey, { expiresIn: '30m' },(error,result)=>{
                 if (error) return res.status(500).send({ message: "error tkn" });
                 return res.status(200).send({message:true,result, isMatch});
                 })
