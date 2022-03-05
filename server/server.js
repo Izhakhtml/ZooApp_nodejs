@@ -14,5 +14,5 @@ App.use(express.json());
 App.use(passport.initialize());
 App.use('/animal',passport.authenticate("jwt",{ session: false }),AnimalRouter);
 App.use('/employee',passport.authenticate("jwt",{ session: false }),EmployeeRouter);
-App.use('/api',UserRouter);
+App.use('/',UserRouter);
 App.listen(Port);
