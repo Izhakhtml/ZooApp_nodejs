@@ -15,4 +15,7 @@ App.use(passport.initialize());
 App.use('/animal',passport.authenticate("jwt",{ session: false }),AnimalRouter);
 App.use('/employee',passport.authenticate("jwt",{ session: false }),EmployeeRouter);
 App.use('/',UserRouter);
+App.get('/',(req,res)=>{
+    res.send("<h1>Hello there</h1><br><h2>please route by --employee --animal to get data </h2>");
+})
 App.listen(Port);
